@@ -1,0 +1,19 @@
+{
+  "name": "gamer-pals-app",
+  "version": "1.0.0",
+  "description": "App to match people with similar gaming interests",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanzous/Gamer-Pals.git"
+  },
+  "author": "Leonard Canastra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sanzous/Gamer-Pals/issues"
+  },
+  "homepage": "https://github.com/sanzous/Gamer-Pals#readme"
+}
