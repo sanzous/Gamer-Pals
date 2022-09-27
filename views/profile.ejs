@@ -1,0 +1,17 @@
+<%- include('partials/header') -%>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-6">
+        <div>
+          <p><strong>User Name</strong>: <%= user.userName %>
+          </p>
+          <p><strong>Email</strong>: <%= user.email %>
+          </p>
+          <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <%- include('partials/footer') -%>
