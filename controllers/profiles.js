@@ -12,12 +12,12 @@ module.exports = {
 
     updateProfile: async (req, res) => {
         try {
-            console.log(req.body)
             User.findByIdAndUpdate(req.user.id,
                 {
                     timezone: req.body.timezone,
                     likedGames: req.body.game,
                     consoles: req.body.console
+
                 },
                 function (err, docs) {
                     if (err) {
@@ -37,21 +37,15 @@ module.exports = {
 
     getProfile: async (req, res) => {
         try {
-            console.log(req.user)
+
             // const posts = await Post.find({ user: req.user.id });
             const user = await User.find({ user: req.user.id })
+            console.log(req.user)
             res.render("profile.ejs", { user: req.user });
         } catch (err) {
             console.log(err);
         }
     },
 
-    getMatch: async (req, res) => {
-        try {
-            const user = await User.find({ user: req.user.id })
-            res.render('match.ejs', { user: req.user })
-        } catch (err) {
-            console.log(err)
-        }
-    },
+
 }

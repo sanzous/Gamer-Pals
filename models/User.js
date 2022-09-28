@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
 
   email: { type: String, unique: true },
 
-  password: { String },
+  password: String,
 
   timezone: {
     type: String,
@@ -27,7 +27,6 @@ const UserSchema = new mongoose.Schema({
   consoles: {
     type: [String]
   },
-
 });
 
 // Password hash middleware.

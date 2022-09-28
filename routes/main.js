@@ -3,6 +3,7 @@ const router = express.Router()
 const homeController = require('../controllers/home')
 const authController = require('../controllers/auth')
 const profileController = require('../controllers/profiles')
+const matchController = require('../controllers/match')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 
@@ -15,8 +16,7 @@ router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
 router.get('/signup/updateprofile', profileController.getUpdateProfile)
 router.post("/updateprofile", profileController.updateProfile)
-
 router.get("/profile", ensureAuth, profileController.getProfile);
-router.get("/match", ensureAuth, profileController.getMatch);
+router.get('/match', ensureAuth, matchController.getMatch)
 
 module.exports = router
