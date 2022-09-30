@@ -20,8 +20,15 @@ const UserSchema = new mongoose.Schema({
     type: [String]
   },
 
-  matchedUsers: {
-    users: [mongoose.Schema.Types.ObjectId]
+  matchedUsers:
+  {
+    type: [String]
+  }
+  ,
+
+  rejectedUsers:
+  {
+    type: [String]
   },
 
   consoles: {

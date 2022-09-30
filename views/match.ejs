@@ -8,6 +8,12 @@
     </p>
     <p><strong>Consoles</strong>: <%= user.consoles %>
     </p>
+    <form action="/reject/<%= user.id %>?_method=PUT" method="POST"">
+        <button type=" submit">No</button>
+    </form>
+    <form action="/accept/<%= user.id %>?_method=PUT" method="POST">
+        <button type="submit">Yes</button>
+    </form>
 
 
     <%- include('partials/footer') -%>

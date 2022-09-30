@@ -18,5 +18,7 @@ router.get('/signup/updateprofile', profileController.getUpdateProfile)
 router.post("/updateprofile", profileController.updateProfile)
 router.get("/profile", ensureAuth, profileController.getProfile);
 router.get('/match', ensureAuth, matchController.getMatch)
+router.put('/accept/:id', matchController.acceptMatch)
+router.put('/reject/:id', ensureAuth, matchController.rejectMatch)
 
 module.exports = router

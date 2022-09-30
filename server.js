@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
@@ -29,6 +30,7 @@ app.use(express.static("public"));
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors())
 
 //Logging
 app.use(logger("dev"));
@@ -55,6 +57,7 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
+app.use("/match", mainRoutes);
 // app.use("/post", postRoutes);
 // app.use("/comment", commentRoutes)
 
