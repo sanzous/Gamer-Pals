@@ -4,6 +4,7 @@ const User = require('../models/User');
 module.exports = {
     getUpdateProfile: async (req, res) => {
         try {
+            console.log(req.user)
             res.render('updateprofile.ejs')
         } catch (error) {
             console.log(error)
