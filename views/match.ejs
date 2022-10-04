@@ -7,14 +7,21 @@
             <% } else { %>
                 <div class="w-[1000px] my-36 flex flex-col mx-auto">
                     <div class="flex flex-row justify-between items-center">
-                        <div
-                            class="card order-2 bg-primary bg-opacity-40 h-56 w-56 flex flex-col align-center justify-center">
-                            <p class=""><strong>User Name</strong>: <%= user.userName %>
-                            </p>
-                            <p><strong>Liked Games</strong>: <%= user.likedGames %>
-                            </p>
-                            <p><strong>Consoles</strong>: <%= user.consoles %>
-                            </p>
+                        <div class="card w-96 bg-base-100 shadow-xl order-2">
+                            <figure class="px-10 pt-10">
+                                <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
+                            </figure>
+                            <div class="card-body items-center text-center">
+                                <h2 class="card-title">
+                                    <%= user.userName %>
+                                </h2>
+                                <p>
+                                    <%= user.likedGames %>
+                                </p>
+                                <p>
+                                    <%= user.consoles %>
+                                </p>
+                            </div>
                         </div>
                         <div class="order-1">
                             <form action="/reject/<%= user.id %>?_method=PUT" method="POST"" class=" ">

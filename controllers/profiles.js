@@ -42,11 +42,20 @@ module.exports = {
 
     getProfile: async (req, res) => {
         try {
+            let matched = []
+            const match = req.user.matchedUsers
+            for (let i = 0; i < match.length; i++) {
+                const user = await User.findById(match[i])
+                const foundUser = {
+                    username: user.userName,
+                    likedgames: user.likedGames,
+                    consoles: user.consoles
+                }
+                matched.push(foundUser)
 
-            // const posts = await Post.find({ user: req.user.id });
-            const user = await User.find({ user: req.user.id })
-            console.log(req.user)
-            res.render("profile.ejs", { user: req.user });
+            }
+            console.log(matched)
+            res.render("profile.ejs", { user: req.user, matchedUsers: matched });
         } catch (err) {
             console.log(err);
         }
