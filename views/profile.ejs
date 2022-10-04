@@ -22,10 +22,10 @@
         </div>
 
       </div>
-      <% if(typeof matchedUsers=='undefined' ){ %>
+      <% if(typeof matchedUsers!=='undefined' ){ %>
         <div>
           <h2 class='text-5xl text-center'>Matches</h2>
-          <% for(var i=0; i<2; i++) {%>
+          <% for(var i=0; i<matchedUsers.length; i++) {%>
             <div class="card w-96 bg-base-100 shadow-xl">
               <figure class="px-10 pt-10">
                 <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
