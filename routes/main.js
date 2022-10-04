@@ -14,7 +14,7 @@ router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
-router.get('/signup/updateprofile', profileController.getUpdateProfile)
+router.get('/signup/updateprofile', ensureAuth, profileController.getUpdateProfile)
 router.post("/updateprofile", profileController.updateProfile)
 router.get("/profile", ensureAuth, profileController.getProfile);
 router.get('/match', ensureAuth, matchController.getMatch)

@@ -1,15 +1,10 @@
 <%- include('partials/header') -%>
     <main>
-        <form action="/updateprofile" method="POST">
-            <!-- <div class="mb-3">
-            <label for="imgUpload" class="form-label">Profile Picture</label>
-            <input type="file" class="form-control" id="imageUpload" name="file">
-        </div> -->
 
-
+        <form action="/updateprofile" method="POST" class='card mt-20'>
             <div class="mb-3">
-                <label for="timezone" class="form-label">Timezone</label>
-                <select name="timezone" id="timezone">
+                <label for="timezone" class="label">Timezone</label>
+                <select name="timezone" id="timezone" class='select select-bordered w-full max-w-xs'>
                     <option value="pst">Pacific</option>
                     <option value="mst">Mountain</option>
                     <option value="cst">Central</option>
@@ -17,66 +12,30 @@
                     <option value="hast">Hawaii-Aleutian</option>
                 </select>
             </div>
-
-
-            <fieldset>
-                <legend>Liked Game Genres:</legend>
-                <div>
-                    <input type="checkbox" id="mmorpg" name="game" value="mmorpg">
-                    <label for="mmorpg" class="label cursor-pointer">MMORPG</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="survival" name="game" value="survival">
-                    <label for="survival" class="label cursor-pointer">Open World Survival</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="arpg" name="arpg">
-                    <label for="arpg" class="label cursor-pointer">Action RPG</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="strategy" name="strategy">
-                    <label for="strategy" class="label cursor-pointer">Strategy</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="fps" name="fps">
-                    <label for="fps" class="label cursor-pointer">FPS</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="party" name="party">
-                    <label for="party" class="label cursor-pointer">Party Games</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="base" name="base">
-                    <label for="base" class="label cursor-pointer">Base Building </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="sports" name="sports">
-                    <label for="horns" class="label cursor-pointer">Sports</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="fighting" name="fighting">
-                    <label for="horns" class="label cursor-pointer">Fighting</label>
-                </div>
+            <fieldset class="mt-20 bg-primay max-w-[200px]">
+                <legend>Preferred Game Genres</legend>
+                <% for(var i=0; i<games.length;i++) {%>
+                    <label for='<%=games[i]%>' class="label cursor-pointer">
+                        <span class="label-text">
+                            <%=games[i]%>
+                        </span>
+                        <input type="checkbox" id="<%=games[i]%>" name="games" value="<%=games[i]%>" class="checkbox" />
+                    </label>
+                    <% } %>
             </fieldset>
-            <fieldset>
-                <legend>Consoles:</legend>
-                <div>
-                    <input type="checkbox" id="pc" name="console" value='pc'>
-                    <label for="pc" class="label cursor-pointer">PC</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="playstation" name="console" value='playstation'>
-                    <label for="playstation" class="label cursor-pointer">Playstation</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="xbox" name="console" value='xbox'>
-                    <label for="xbox">Xbox</label>
-                </div>
-                <div>
-                    <label for="nintendo" class="label cursor-pointer">Nintendo</label>
-                    <input type="checkbox" id="nintendo" name="console" value='nintendo'>
 
-                </div>
+
+            <fieldset class="mt-20 mb-10 max-w-[200px]">
+                <legend>Consoles:</legend>
+                <% for(var i=0; i<consoles.length;i++) {%>
+                    <label for='<%=consoles[i]%>' class="label cursor-pointer">
+                        <span class="label-text">
+                            <%=consoles[i]%>
+                        </span>
+                        <input type="checkbox" id="<%=consoles[i]%>" name="consoles" value="<%=consoles[i]%>"
+                            class="checkbox" />
+                    </label>
+                    <% } %>
             </fieldset>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

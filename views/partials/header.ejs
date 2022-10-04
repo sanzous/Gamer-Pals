@@ -10,32 +10,30 @@
 </head>
 
 
+<body class="bg-[#161a1e] h-1000px">
+  <header class="flex justify-between items-center h-24 max-w-screen-xl mx-auto px-4 text-white">
+    <a href="/"><img src="/images/default.png" class="h-20 rounded-lg shadow-2xl" /></a>
+    <ul class='w-1/2 hidden md:flex justify-end gap-10'>
 
-<header class="flex justify-between items-center h-24 max-w-screen-xl mx-auto px-4 text-white">
-  <a href="/"><img src="/images/default.png" class="h-20 rounded-lg shadow-2xl" /></a>
-  <ul class='w-1/2 hidden md:flex justify-end gap-10'>
+      <% if(typeof user=='undefined' ){ %>
+        <a href="/login">
+          <li class='p-4 btn btn-primary'>Log In</li>
+        </a>
+        <a href="/signup">
+          <li class='p-4 btn btn-primary'>Sign Up</li>
+        </a>
+        <% } %>
+          <% if(typeof user!=='undefined' ){ %>
+            <a href="/profile">
+              <li class='p-4 text-white'>Home</li>
+            </a>
+            <a href="/match">
+              <li class='p-4 text-white'>Matches</li>
+            </a>
+            <a href="/logout">
+              <li class='p-4 btn btn-primary'>Logout</li>
+            </a>
+            <% } %>
 
-    <% if(typeof user=='undefined' ){ %>
-      <a href="/login">
-        <li class='p-4 btn btn-primary'>Log In</li>
-      </a>
-      <a href="/signup">
-        <li class='p-4 btn btn-primary'>Sign Up</li>
-      </a>
-      <% } %>
-        <% if(typeof user!=='undefined' ){ %>
-          <a href="/profile">
-            <li class='p-4 text-white'>Home</li>
-          </a>
-          <a href="/match">
-            <li class='p-4 text-white'>Matches</li>
-          </a>
-          <a href="/logout">
-            <li class='p-4 btn btn-primary'>Logout</li>
-          </a>
-          <% } %>
-
-  </ul>
-</header>
-
-<body class="h-screen">
+    </ul>
+  </header>

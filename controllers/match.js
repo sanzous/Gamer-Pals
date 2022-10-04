@@ -7,30 +7,23 @@ module.exports = {
     getMatch: async (req, res) => {
         try {
             const user = await User.find()
-
-
             let arr = []
             for (let i = 0; i < user.length; i++) {
                 arr.push(user[i].id)
             }
             if (typeof req.user.matchedUsers !== 'undefined') {
-                req.user.matchedUsers.forEach(e => console.log(e))
-                arr = arr.filter(e => e !== req.user.id)
-                arr = arr.filter(e => !req.user.matchedUsers.includes(e))
-                arr = arr.filter(e => !req.user.rejectedUsers.includes(e))
-                console.log(arr.length)
+                arr = arr.filter(e => e !== req.user.id).filter(e => !req.user.matchedUsers.includes(e)).filter(e => !req.user.rejectedUsers.includes(e))
             }
-
-
-
             const random = Math.floor(Math.random() * arr.length)
             const randomUser = arr[random]
-            console.log('random:' + randomUser)
 
             User.findById(randomUser).exec(
                 function (err, user) {
-                    res.render('match.ejs', { user: user })
-                    console.log(user)
+                    if (!user) {
+                        res.render('match.ejs', { user: false })
+                    } else {
+                        res.render('match.ejs', { user: user })
+                    }
                 }
             )
 

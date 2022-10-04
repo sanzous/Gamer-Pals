@@ -1,19 +1,38 @@
 <%- include('partials/header') -%>
+    <main class="h-screen">
+        <% if(!user){ %>
+            <div class="flex justify-center max-h-[1000px]">
+                <p class="text-center btn btn-primary shadow-lg w-[200px]">No users left to Match with!</p>
+            </div>
+            <% } else { %>
+                <div class="w-[1000px] my-36 flex flex-col mx-auto">
+                    <div class="flex flex-row justify-between items-center">
+                        <div
+                            class="card order-2 bg-primary bg-opacity-40 h-56 w-56 flex flex-col align-center justify-center">
+                            <p class=""><strong>User Name</strong>: <%= user.userName %>
+                            </p>
+                            <p><strong>Liked Games</strong>: <%= user.likedGames %>
+                            </p>
+                            <p><strong>Consoles</strong>: <%= user.consoles %>
+                            </p>
+                        </div>
+                        <div class="order-1">
+                            <form action="/reject/<%= user.id %>?_method=PUT" method="POST"" class=" ">
+                        <button class=" btn btn-circle" type=" submit">No</button>
+                            </form>
+                        </div>
+                        <div class="order-3">
+                            <form action="/accept/<%= user.id %>?_method=PUT" method="POST" class="btn btn-circle">
+                                <button type="submit">Yes</button>
+                            </form>
+                        </div>
 
-    <p><strong>User Name</strong>: <%= user.userName %>
-    </p>
-    <p><strong>Email</strong>: <%= user.email %>
-    </p>
-    <p><strong>Liked Games</strong>: <%= user.likedGames %>
-    </p>
-    <p><strong>Consoles</strong>: <%= user.consoles %>
-    </p>
-    <form action="/reject/<%= user.id %>?_method=PUT" method="POST"">
-        <button type=" submit">No</button>
-    </form>
-    <form action="/accept/<%= user.id %>?_method=PUT" method="POST">
-        <button type="submit">Yes</button>
-    </form>
+                    </div>
+
+                </div>
+                <% } %>
+    </main>
+
 
 
     <%- include('partials/footer') -%>

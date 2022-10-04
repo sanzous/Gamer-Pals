@@ -4,8 +4,10 @@ const User = require('../models/User');
 module.exports = {
     getUpdateProfile: async (req, res) => {
         try {
-            console.log(req.user)
-            res.render('updateprofile.ejs')
+            const games = ['MMORPG', 'Open World Survival', 'ARPG', 'Strategy', 'FPS',
+                'Party Games', 'Base Building', 'Sports', 'Fighting']
+            const consoles = ['PC', 'Xbox', 'Playstation 4/5', 'Nintendo Switch', 'Handheld']
+            res.render('updateprofile.ejs', { games: games, consoles: consoles })
         } catch (error) {
             console.log(error)
         }
@@ -13,11 +15,13 @@ module.exports = {
 
     updateProfile: async (req, res) => {
         try {
+            console.log(req.body)
             User.findByIdAndUpdate(req.user.id,
                 {
+
                     timezone: req.body.timezone,
-                    likedGames: req.body.game,
-                    consoles: req.body.console
+                    likedGames: req.body.games,
+                    consoles: req.body.consoles
 
                 },
                 function (err, docs) {
