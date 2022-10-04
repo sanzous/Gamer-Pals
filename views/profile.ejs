@@ -22,41 +22,42 @@
         </div>
 
       </div>
+      <% if(typeof matchedUsers=='undefined' ){ %>
+        <div>
+          <h2 class='text-5xl text-center'>Matches</h2>
+          <% for(var i=0; i<2; i++) {%>
+            <div class="card w-96 bg-base-100 shadow-xl">
+              <figure class="px-10 pt-10">
+                <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title">
+                  <%= matchedUsers[i].username%>
+                </h2>
+                <p>
+                  <%= matchedUsers[i].likedgames%>
+                </p>
+                <p>
+                  <%= matchedUsers[i].consoles%>
+                </p>
 
-      <div>
-        <h2 class='text-5xl text-center'>Matches</h2>
-        <% for(var i=0; i<2; i++) {%>
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-              <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
-            </figure>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">
-                <%= matchedUsers[i].username%>
-              </h2>
-              <p>
-                <%= matchedUsers[i].likedgames%>
-              </p>
-              <p>
-                <%= matchedUsers[i].consoles%>
-              </p>
-
+              </div>
             </div>
-          </div>
 
-          <!-- <p>
+            <!-- <p>
             <%= matchedUsers[i].username%>
               <%= matchedUsers[i].likedgames%>
                 <%= matchedUsers[i].consoles%>
           </p> -->
 
 
-          <% } %>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
+
+
       </div>
-    </div>
-
-
-    </div>
-    </div>
+      </div>
   </main>
   <%- include('partials/footer') -%>
